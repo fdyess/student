@@ -125,7 +125,7 @@ Gallery of Pics, scroll to the right for more ...
 <div class="image-gallery">
   <img src="{{site.baseurl}}/images/about/unnamed.png" alt="Image 1">
   <img src="{{site.baseurl}}/images/about/some_guy.jpg" alt="Image 2">
-  <img src="{{site.baseurl}}/images/about/berd.jpg" alt="Image 3">
-  <img src="{{site.baseurl}}/images/about/feet.jpg" alt="Image 4">
-  <img src="{{site.baseurl}}/images/about/guy.jpg" alt="Image 5">
+  <img src="{{site.baseurl}}/images/about/berd.JPG" alt="Image 3">
+  <img src="{{site.baseurl}}/images/about/feet.JPG" alt="Image 4">
+  <img src="{{site.baseurl}}/images/about/guy.JPG" alt="Image 5">
 </div>
