@@ -112,4 +112,7 @@ Gallery of Pics, scroll to the right for more ...
 </comment>
 <div class="image-gallery">
   <img src="{{site.baseurl}}/images/about/some_guy.jpg" alt="Image 1">
+  <img src="{{site.baseurl}}/images/about/aura.JPG" alt="Image 1">
+  <img src="{{site.baseurl}}/images/about/chonk.JPG" alt="Image 1">
+  <img src="{{site.baseurl}}/images/about/sprite.JPG" alt="Image 1">
 </div>
