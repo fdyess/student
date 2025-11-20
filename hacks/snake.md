@@ -75,13 +75,13 @@ permalink: /snake/
     <div class="container bg-secondary" style="text-align:center;">
         <!-- Main Menu -->
         <div id="menu" class="py-4 text-light">
-            <p>Welcome to Snake, press <span style="background-color: #FFFFFF; color: #000000">space</span> to begin</p>
+            <p>Welcome to Snake, don't press <span style="background-color: #FFFFFF; color: #000000">space</span> to begin</p>
             <a id="new_game" class="link-alert">new game</a>
             <a id="setting_menu" class="link-alert">settings</a>
         </div>
         <!-- Game Over -->
         <div id="gameover" class="py-4 text-light">
-            <p>Game Over, press <span style="background-color: #FFFFFF; color: #000000">space</span> to try again</p>
+            <p>wow you died, don't press <span style="background-color: #FFFFFF; color: #000000">space</span> to try again</p>
             <a id="new_game1" class="link-alert">new game</a>
             <a id="setting_menu1" class="link-alert">settings</a>
         </div>
@@ -93,12 +93,12 @@ permalink: /snake/
             <a id="new_game2" class="link-alert">new game</a>
             <br>
             <p>Speed:
-                <input id="speed1" type="radio" name="speed" value="120" checked/>
-                <label for="speed1">Slow</label>
+                <input id="speed1" type="radio" name="speed" value="999" checked/>
+                <label for="speed1">very slow</label>
                 <input id="speed2" type="radio" name="speed" value="75"/>
                 <label for="speed2">Normal</label>
-                <input id="speed3" type="radio" name="speed" value="35"/>
-                <label for="speed3">Fast</label>
+                <input id="speed3" type="radio" name="speed" value="1"/>
+                <label for="speed3">too fast</label>
             </p>
             <p>Wall:
                 <input id="wallon" type="radio" name="wall" value="1" checked/>
