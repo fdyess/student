@@ -5,7 +5,7 @@ hide: true
 show_reading_time: false
 ---
 
-Hi! My name is Finn
+Hi! My name is Finn.
 
 ### Development Environment
 
