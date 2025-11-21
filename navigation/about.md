@@ -96,14 +96,15 @@ Flags are made using Wikipedia images
 
 ### Journey through Life
 
-Here is what I did at those places
+Here are some of my hobbies or things I like to do
 
--   test change ._.
--   qwertyuiop
+-   Playing video games
+-   Drawing
+-   Sleeping
+-   Skateboarding
+-   Playing trumpet
 
 ### Culture, Family, and Fun
-
-Everything for me, as for many others, revolves around family and faith.
 
 - My family comes from many places, such as China, England, and Germany. 
 - The gallery of pics has some of my family, fun, and culture.
@@ -116,4 +117,8 @@ Gallery of Pics, scroll to the right for more ...
   <img src="{{site.baseurl}}/images/about/aura.JPG" alt="Image 2">
   <img src="{{site.baseurl}}/images/about/chonk.JPG" alt="Image 3">
   <img src="{{site.baseurl}}/images/about/sprite.JPG" alt="Image 4">
+  <img src="{{site.baseurl}}/images/about/67.JPEG" alt="Image 5">
+  <img src="{{site.baseurl}}/images/about/band.jpeg" alt="Image 6">
+  <img src="{{site.baseurl}}/images/about/knight.jpeg" alt="Image 7">
+  <img src="{{site.baseurl}}/images/about/blorb Background Removed.png" alt="Image 8">
 </div>
