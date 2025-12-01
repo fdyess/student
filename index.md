@@ -20,7 +20,7 @@ Hi! My name is Finn.
     </button>
 </a>
 
-<a href="{{site.baseurl}}/student/about">
+<a href="{{site.baseurl}}/about">
     <button style="
         background-color: #00aaffff;
         color: white;
