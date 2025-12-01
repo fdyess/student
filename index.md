@@ -7,6 +7,33 @@ show_reading_time: false
 
 Hi! My name is Finn.
 
+<a href="{{site.baseurl}}/tools/journey">
+    <button style="
+        background-color: #ff0000ff;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;">
+        My Tools Journey
+    </button>
+</a>
+
+<a href="{{site.baseurl}}/student/about">
+    <button style="
+        background-color: #00aaffff;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;">
+        About Me
+    </button>
+</a>
+
+
 ### Development Environment
 
 > Coding starts with tools, explore these tools and procedures with a click.
@@ -43,6 +70,9 @@ Hi! My name is Finn.
             Turtle
         </div>
     </a>
+    <a href="{{site.baseurl}}/test_game" style="text-decoration: none;">
+        <div style="background-color: #00ff3cff; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+            game
 </div>
 
 <br>
