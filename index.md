@@ -70,9 +70,6 @@ Hi! My name is Finn.
             Turtle
         </div>
     </a>
-    <a href="{{site.baseurl}}/test_game" style="text-decoration: none;">
-        <div style="background-color: #00ff3cff; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
-            game
 </div>
 
 <br>
