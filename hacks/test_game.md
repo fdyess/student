@@ -73,7 +73,7 @@ function update() {
         player.x < goal.x + goal.width &&
         player.y + player.height > goal.y &&
         player.y < goal.y + goal.height) {
-            alert("You win!");
+            alert("you won. wow. are you proud of yourself. you just wasted 10 seconds of your life on this dumb game that you will never get back. nice job! I'm proud, don't worry. the game was fun, right? best 10 seconds of your life for sure. oh well, good job. if you died... i dont even know how you did. massive skill issue fs breh lock in. yea ik this is kinda bad but ion think u can do this either. oh, u used chatgpt? thats great, academic dishoonesty. uh. i used chatgpt too. its all good. oh well, bye now u can go back to ur regular life. i know ur a better person now that you have played this masterpiece of a game. ok now well im yapping i jsut want to fill this text box fully so it looks like it has a bunch of text eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee ok im done now bye have a great time bye.");
             player.x = 50;
             player.y = 0;
     }
