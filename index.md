@@ -70,6 +70,11 @@ Hi! My name is Finn.
             Turtle
         </div>
     </a>
+     <a href="{{site.baseurl}}/platformer" style="text-decoration: none;">
+        <div style="background-color: #00ff40ff; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+            test
+        </div>
+    </a>
 </div>
 
 <br>

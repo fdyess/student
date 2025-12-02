@@ -1,4 +1,9 @@
-<!-- Simple Platformer Game -->
+---
+layout: opencs
+title: platformer
+permalink: /platformer/
+---
+
 <canvas id="platformer" width="600" height="300" style="background:#e8e8e8; border:2px solid #444; border-radius:10px; margin-top:20px;"></canvas>
 
 <script>
