@@ -107,7 +107,7 @@ Here are some of my hobbies or things I like to do
 ### Culture, Family, and Fun
 
 - My family comes from many places, such as China, England, and Germany. 
-- I have one sibling and one pet, a dog.
+- I have one sibling and one dog.
 - The gallery of pics has some of my family, fun, and culture.
 
 <comment>

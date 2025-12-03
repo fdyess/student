@@ -62,7 +62,7 @@ Hi! My name is Finn.
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
     <a href="{{site.baseurl}}/snake" style="text-decoration: none;">
         <div style="background-color: #1e00ffff; color: black; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
-            very fun white line moves across screen eating white squares game
+            Snake
         </div>
     </a>
     <a href="{{site.baseurl}}/turtle" style="text-decoration: none;">
