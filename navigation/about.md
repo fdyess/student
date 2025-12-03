@@ -7,7 +7,7 @@ comments: true
 
 ## As a conversation Starter
 
-Here are some places I have lived.
+Here are some places I come from. 
 
 <comment>
 Flags are made using Wikipedia images
@@ -54,14 +54,27 @@ Flags are made using Wikipedia images
 </div>
 
 <script>
-    // 1. Make a connection to the HTML container defined in the HTML div
-    var container = document.getElementById("grid_container"); // This container connects to the HTML div
+var container = document.getElementById("grid_container");
 
-    // 2. Define a JavaScript object for our http source and our data rows for the Living in the World grid
-    var http_source = "https://upload.wikimedia.org/wikipedia/commons/";
-    var living_in_the_world = [
-        {"flag": "0/01/Flag_of_California.svg", "greeting": "Hey", "description": "California - forever"},
-    ];
+var http_source = "https://upload.wikimedia.org/wikipedia/commons/";
+
+var living_in_the_world = [
+    {
+        "flag": "0/01/Flag_of_California.svg",
+        "greeting": "Hey",
+        "description": "California - forever"
+    },
+    {
+        "flag": "f/fa/Flag_of_the_People%27s_Republic_of_China.svg",
+        "greeting": "你好",
+        "description": "China - this is where my mother is from"
+    },
+    {
+        "flag": "a/a4/Flag_of_the_United_States.svg",
+        "greeting": "Hello",
+        "description": "United States - this is where my father is from"
+    }
+];
 
     // 3a. Consider how to update style count for size of container
     // The grid-template-columns has been defined as dynamic with auto-fill and minmax
