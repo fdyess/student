@@ -91,7 +91,7 @@ permalink: /snake/
     </div>
 </div>
 
-<script>
+ <script>
 (function(){
     const canvas = document.getElementById("snake");
     const ctx = canvas.getContext("2d");
@@ -119,7 +119,6 @@ permalink: /snake/
     let food = {x:0, y:0};
     let score, wall;
 
-    // Reusable function to draw snake or apple
     let drawDot = function(x, y, color){
         ctx.fillStyle = color;
         ctx.fillRect(x * BLOCK, y * BLOCK, BLOCK, BLOCK);
@@ -160,6 +159,7 @@ permalink: /snake/
         }
 
         window.addEventListener("keydown", function(evt){
+            // spacebar detected
             if(evt.code==="Space" && SCREEN!==SCREEN_SNAKE)
                 newGame();
         }, true);
@@ -180,7 +180,6 @@ permalink: /snake/
         snake.pop();
         snake.unshift({x:_x, y:_y});
 
-        // Wall behavior
         if(wall===1){
             if(snake[0].x<0 || snake[0].x===canvas.width/BLOCK || snake[0].y<0 || snake[0].y===canvas.height/BLOCK){
                 showScreen(SCREEN_GAME_OVER);
@@ -195,7 +194,6 @@ permalink: /snake/
             }
         }
 
-        // Snake vs snake
         for(let i=1;i<snake.length;i++){
             if(snake[0].x===snake[i].x && snake[0].y===snake[i].y){
                 showScreen(SCREEN_GAME_OVER);
@@ -203,23 +201,19 @@ permalink: /snake/
             }
         }
 
-        // Snake eats food
         if(checkBlock(snake[0].x, snake[0].y, food.x, food.y)){
             snake.push({x:snake[0].x, y:snake[0].y});
             altScore(++score);
             addFood();
         }
 
-        // Clear canvas
         ctx.fillStyle = "black";
         ctx.fillRect(0,0,canvas.width,canvas.height);
 
-        // Draw snake (green)
         for(let i=0;i<snake.length;i++){
             drawDot(snake[i].x, snake[i].y, "#00ff1aff");
         }
 
-        // Draw food (red)
         drawDot(food.x, food.y, "red");
 
         setTimeout(mainLoop, snake_speed);
@@ -239,10 +233,16 @@ permalink: /snake/
 
     let changeDir = function(key){
         switch(key){
-            case 37: if(snake_dir!==1) snake_next_dir=3; break;
-            case 38: if(snake_dir!==2) snake_next_dir=0; break;
-            case 39: if(snake_dir!==3) snake_next_dir=1; break;
-            case 40: if(snake_dir!==0) snake_next_dir=2; break;
+            // Arrow keys
+            case 37: if(snake_dir!==1) snake_next_dir=3; break; // Left
+            case 38: if(snake_dir!==2) snake_next_dir=0; break; // Up
+            case 39: if(snake_dir!==3) snake_next_dir=1; break; // Right
+            case 40: if(snake_dir!==0) snake_next_dir=2; break; // Down
+            // WASD keys
+            case 65: if(snake_dir!==1) snake_next_dir=3; break; // A = Left
+            case 87: if(snake_dir!==2) snake_next_dir=0; break; // W = Up
+            case 68: if(snake_dir!==3) snake_next_dir=1; break; // D = Right
+            case 83: if(snake_dir!==0) snake_next_dir=2; break; // S = Down
         }
     }
 
@@ -251,7 +251,7 @@ permalink: /snake/
         food.y = Math.floor(Math.random() * (canvas.height/BLOCK - 1));
         for(let i=0;i<snake.length;i++){
             if(checkBlock(food.x, food.y, snake[i].x, snake[i].y)){
-                addFood(); // retry if food overlaps snake
+                addFood();
                 return;
             }
         }
@@ -266,3 +266,4 @@ permalink: /snake/
     }
 })();
 </script>
+
