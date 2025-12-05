@@ -15,7 +15,7 @@ permalink: /snake/
         display: none;
         border-style: solid;
         border-width: 10px;
-        border-color: #FFFFFF;
+        border-color: rgba(21, 155, 0, 1);
     }
     canvas:focus{
         outline: none;
@@ -46,7 +46,7 @@ permalink: /snake/
     #setting label{ cursor: pointer; }
     #setting input:checked + label{
         background-color: #FFF;
-        color: #000;
+        color: #59ff00ff;
     }
 </style>
 
@@ -116,7 +116,7 @@ permalink: /snake/
     const BLOCK = 10;
     let SCREEN = SCREEN_MENU;
     let snake, snake_dir, snake_next_dir, snake_speed;
-    let food = {x:0, y:0};
+    let food = {x:0, y:0, type:"normal"}; // type: normal or gold
     let score, wall;
 
     let drawDot = function(x, y, color){
@@ -159,7 +159,6 @@ permalink: /snake/
         }
 
         window.addEventListener("keydown", function(evt){
-            // spacebar detected
             if(evt.code==="Space" && SCREEN!==SCREEN_SNAKE)
                 newGame();
         }, true);
@@ -201,12 +200,15 @@ permalink: /snake/
             }
         }
 
+        // Snake eats food
         if(checkBlock(snake[0].x, snake[0].y, food.x, food.y)){
             snake.push({x:snake[0].x, y:snake[0].y});
-            altScore(++score);
+            score += food.type==="gold"?5:1; // gold gives 5 points
+            altScore(score);
             addFood();
         }
 
+        // Repaint canvas
         ctx.fillStyle = "black";
         ctx.fillRect(0,0,canvas.width,canvas.height);
 
@@ -214,7 +216,14 @@ permalink: /snake/
             drawDot(snake[i].x, snake[i].y, "#00ff1aff");
         }
 
-        drawDot(food.x, food.y, "red");
+        // Draw food
+        if(food.type==="gold"){
+            // blink effect
+            let color = Math.floor(Date.now()/300)%2===0?"gold":"#ffff55";
+            drawDot(food.x, food.y, color);
+        } else {
+            drawDot(food.x, food.y, "red");
+        }
 
         setTimeout(mainLoop, snake_speed);
     }
@@ -226,7 +235,6 @@ permalink: /snake/
         snake=[{x:0, y:15}];
         snake_next_dir=1;
         addFood();
-
         canvas.onkeydown=function(evt){ changeDir(evt.keyCode); }
         mainLoop();
     }
@@ -247,8 +255,12 @@ permalink: /snake/
     }
 
     let addFood = function(){
-        food.x = Math.floor(Math.random() * (canvas.width/BLOCK - 1));
-        food.y = Math.floor(Math.random() * (canvas.height/BLOCK - 1));
+        food.x = Math.floor(Math.random()*(canvas.width/BLOCK-1));
+        food.y = Math.floor(Math.random()*(canvas.height/BLOCK-1));
+
+        // Decide if this is a gold apple (~20% chance)
+        food.type = Math.random()<0.2 ? "gold":"normal";
+
         for(let i=0;i<snake.length;i++){
             if(checkBlock(food.x, food.y, snake[i].x, snake[i].y)){
                 addFood();
@@ -266,4 +278,5 @@ permalink: /snake/
     }
 })();
 </script>
+
 
