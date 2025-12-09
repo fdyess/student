@@ -45,8 +45,8 @@ permalink: /snake/
     #setting input{ display:none; }
     #setting label{ cursor: pointer; }
     #setting input:checked + label{
-        background-color: #FFF;
-        color: #59ff00ff;
+        background-color: #000000ff;
+        color: #ffffffff;
     }
 </style>
 
@@ -56,13 +56,13 @@ permalink: /snake/
 
     <div class="container bg-secondary" style="text-align:center;">
         <div id="menu" class="py-4 text-light">
-            <p>Welcome to Snake, don't press <span style="background-color: #FFFFFF; color: #000000">space</span> to begin</p>
+            <p>Welcome to Snake, press <span style="background-color: #FFFFFF; color: #000000">space</span> to begin</p>
             <a id="new_game" class="link-alert">new game</a>
             <a id="setting_menu" class="link-alert">settings</a>
         </div>
 
         <div id="gameover" class="py-4 text-light">
-            <p>wow you died, don't press <span style="background-color: #FFFFFF; color: #000000">space</span> to try again</p>
+            <p>You died, press <span style="background-color: #FFFFFF; color: #000000">space</span> to try again</p>
             <a id="new_game1" class="link-alert">new game</a>
             <a id="setting_menu1" class="link-alert">settings</a>
         </div>
@@ -74,12 +74,14 @@ permalink: /snake/
             <a id="new_game2" class="link-alert">new game</a>
             <br>
             <p>Speed:
-                <input id="speed1" type="radio" name="speed" value="999" checked/>
-                <label for="speed1">very slow</label>
-                <input id="speed2" type="radio" name="speed" value="75"/>
+                <input id="speed1" type="radio" name="speed" value="200" checked/>
+                <label for="speed1">Easy</label>
+                <input id="speed2" type="radio" name="speed" value="150"/>
                 <label for="speed2">Normal</label>
-                <input id="speed3" type="radio" name="speed" value="1"/>
-                <label for="speed3">too fast</label>
+                <input id="speed3" type="radio" name="speed" value="100"/>
+                <label for="speed3">Hard</label>
+                <input id="speed4" type="radio" name="speed" value="50"/>
+                <label for="speed3">Impossible</label>
             </p>
             <p>Wall:
                 <input id="wallon" type="radio" name="wall" value="1" checked/>
@@ -113,7 +115,7 @@ permalink: /snake/
     const button_setting_menu = document.getElementById("setting_menu");
     const button_setting_menu1 = document.getElementById("setting_menu1");
 
-    const BLOCK = 10;
+    const BLOCK = 20;
     let SCREEN = SCREEN_MENU;
     let snake, snake_dir, snake_next_dir, snake_speed;
     let food = {x:0, y:0, type:"normal"}; // type: normal or gold
@@ -136,7 +138,7 @@ permalink: /snake/
         button_new_game.onclick = button_new_game1.onclick = button_new_game2.onclick = newGame;
         button_setting_menu.onclick = button_setting_menu1.onclick = ()=>showScreen(SCREEN_SETTING);
 
-        setSnakeSpeed(150);
+        setSnakeSpeed(200);
         for(let i=0;i<speed_setting.length;i++){
             speed_setting[i].addEventListener("click", function(){
                 for(let j=0;j<speed_setting.length;j++){
@@ -168,6 +170,36 @@ permalink: /snake/
         let _x = snake[0].x;
         let _y = snake[0].y;
         snake_dir = snake_next_dir;
+
+    function drawSnakeHead(x, y, dir) {
+    // head background
+    drawDot(x, y, "#3d4bcbff");
+
+    // draw eyes depending on direction
+    ctx.fillStyle = "white";
+
+    if (dir === 0) { 
+        // UP
+        ctx.fillRect(x*BLOCK + 4, y*BLOCK + 4, 4, 4);
+        ctx.fillRect(x*BLOCK + 12, y*BLOCK + 4, 4, 4);
+    } 
+    else if (dir === 1) { 
+        // RIGHT
+        ctx.fillRect(x*BLOCK + 12, y*BLOCK + 4, 4, 4);
+        ctx.fillRect(x*BLOCK + 12, y*BLOCK + 12, 4, 4);
+    } 
+    else if (dir === 2) {
+        // DOWN
+        ctx.fillRect(x*BLOCK + 4, y*BLOCK + 12, 4, 4);
+        ctx.fillRect(x*BLOCK + 12, y*BLOCK + 12, 4, 4);
+    } 
+    else if (dir === 3) { 
+        // LEFT
+        ctx.fillRect(x*BLOCK + 4, y*BLOCK + 4, 4, 4);
+        ctx.fillRect(x*BLOCK + 4, y*BLOCK + 12, 4, 4);
+    }
+}
+
 
         switch(snake_dir){
             case 0: _y--; break;
@@ -209,12 +241,17 @@ permalink: /snake/
         }
 
         // Repaint canvas
-        ctx.fillStyle = "black";
+        ctx.fillStyle = "#227e2bff";
         ctx.fillRect(0,0,canvas.width,canvas.height);
 
-        for(let i=0;i<snake.length;i++){
-            drawDot(snake[i].x, snake[i].y, "#00ff1aff");
-        }
+        // draw head
+        drawSnakeHead(snake[0].x, snake[0].y, snake_dir);
+
+        // draw body
+        for(let i=1;i<snake.length;i++){
+             drawDot(snake[i].x, snake[i].y, "#3d4bcbff");
+}
+
 
         // Draw food
         if(food.type==="gold"){
@@ -274,9 +311,10 @@ permalink: /snake/
     let setSnakeSpeed=function(val){ snake_speed=val; }
     let setWall=function(val){
         wall=val;
-        screen_snake.style.borderColor = wall===1 ? "#FFFFFF" : "#606060";
+        screen_snake.style.borderColor = wall===1 ? "#77fa3bff" : "#606060";
     }
 })();
 </script>
 
 
+s
