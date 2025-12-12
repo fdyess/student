@@ -75,6 +75,11 @@ Hi! My name is Finn.
             test
         </div>
     </a>
+    <a href="{{site.baseurl}}/breakout" style="text-decoration: none;">
+        <div style="background-color: #004cffff; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+            Breakout
+        </div>
+    </a>
 </div>
 
 <br>

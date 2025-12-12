@@ -317,4 +317,3 @@ permalink: /snake/
 </script>
 
 
-s
