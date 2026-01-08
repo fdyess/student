@@ -49,8 +49,8 @@ incremental: true
 
 remote_theme: jekyll/minima
 plugins:
-  - jekyll-remote-theme
   - jekyll-include-cache
+  - jekyll-remote-theme
 
 # Minima-specific settings (applicable to Minima v3 and above only)
 # -----------------------------------------------------------------
