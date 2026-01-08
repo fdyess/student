@@ -14,12 +14,9 @@ Flags are made using Wikipedia images
 </comment>
 
 <style>
-    /* Style looks pretty compact, 
-       - grid-container and grid-item are referenced the code 
-    */
     .grid-container {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Dynamic columns */
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
         gap: 10px;
     }
     .grid-item {
@@ -27,11 +24,11 @@ Flags are made using Wikipedia images
     }
     .grid-item img {
         width: 100%;
-        height: 100px; /* Fixed height for uniformity */
-        object-fit: contain; /* Ensure the image fits within the fixed height */
+        height: 100px;
+        object-fit: contain;
     }
     .grid-item p {
-        margin: 5px 0; /* Add some margin for spacing */
+        margin: 5px 0;
     }
 
     .image-gallery {
@@ -39,7 +36,7 @@ Flags are made using Wikipedia images
         flex-wrap: nowrap;
         overflow-x: auto;
         gap: 10px;
-        }
+    }
 
     .image-gallery img {
         max-height: 150px;
@@ -48,84 +45,129 @@ Flags are made using Wikipedia images
     }
 </style>
 
-<!-- This grid_container class is used by CSS styling and the id is used by JavaScript connection -->
-<div class="grid-container" id="grid_container">
-    <!-- content will be added here by JavaScript -->
-</div>
+
+<div class="grid-container" id="grid_container"></div>
+
+
+## Favorite Video Games
+<div class="grid-container" id="games_container"></div>
 
 <script>
+
 var container = document.getElementById("grid_container");
+var gamesContainer = document.getElementById("games_container");
 
 var http_source = "https://upload.wikimedia.org/wikipedia/commons/";
 
 var living_in_the_world = [
     {
-        "flag": "0/01/Flag_of_California.svg",
-        "greeting": "Hey",
-        "description": "California - forever"
+        flag: "0/01/Flag_of_California.svg",
+        greeting: "Hey",
+        description: "California - forever"
     },
     {
-        "flag": "f/fa/Flag_of_the_People%27s_Republic_of_China.svg",
-        "greeting": "你好",
-        "description": "China - this is where my mother is from"
+        flag: "f/fa/Flag_of_the_People%27s_Republic_of_China.svg",
+        greeting: "你好",
+        description: "China - this is where my mother is from"
     },
     {
-        "flag": "a/a4/Flag_of_the_United_States.svg",
-        "greeting": "Hello",
-        "description": "United States - this is where my father is from"
+        flag: "a/a4/Flag_of_the_United_States.svg",
+        greeting: "Hello",
+        description: "United States - this is where my father is from"
     }
 ];
 
-    // 3a. Consider how to update style count for size of container
-    // The grid-template-columns has been defined as dynamic with auto-fill and minmax
+for (const location of living_in_the_world) {
+    var item = document.createElement("div");
+    item.className = "grid-item";
 
-    // 3b. Build grid items inside of our container for each row of data
-    for (const location of living_in_the_world) {
-        // Create a "div" with "class grid-item" for each row
-        var gridItem = document.createElement("div");
-        gridItem.className = "grid-item";  // This class name connects the gridItem to the CSS style elements
-        // Add "img" HTML tag for the flag
-        var img = document.createElement("img");
-        img.src = http_source + location.flag; // concatenate the source and flag
-        img.alt = location.flag + " Flag"; // add alt text for accessibility
+    var img = document.createElement("img");
+    img.src = http_source + location.flag;
+    img.alt = location.description + " Flag";
 
-        // Add "p" HTML tag for the description
-        var description = document.createElement("p");
-        description.textContent = location.description; // extract the description
+    var desc = document.createElement("p");
+    desc.textContent = location.description;
 
-        // Add "p" HTML tag for the greeting
-        var greeting = document.createElement("p");
-        greeting.textContent = location.greeting;  // extract the greeting
+    var greet = document.createElement("p");
+    greet.textContent = location.greeting;
 
-        // Append img and p HTML tags to the grid item DIV
-        gridItem.appendChild(img);
-        gridItem.appendChild(description);
-        gridItem.appendChild(greeting);
+    item.appendChild(img);
+    item.appendChild(desc);
+    item.appendChild(greet);
 
-        // Append the grid item DIV to the container DIV
-        container.appendChild(gridItem);
+    container.appendChild(item);
+}
+
+
+var http_source = "https://upload.wikimedia.org/wikipedia/commons/";
+var favorite_games = [
+    {
+        title: "Counter Strike",
+        image: "https://upload.wikimedia.org/wikipedia/en/f/f2/CS2_Cover_Art.jpg",
+        note: "Best FPS game right now"
+    },
+    {
+        title: "Valorant",
+        image: "https://upload.wikimedia.org/wikipedia/en/b/ba/Valorant_cover.jpg",
+        note: "Only fun with friends"
+    },
+    {
+        title: "Hollow Knight",
+        image: "https://upload.wikimedia.org/wikipedia/en/0/04/Hollow_Knight_first_cover_art.webp",
+        note: "Best platformer game ever"
+    },
+    {
+        title: "Cuphead",
+        image: "https://upload.wikimedia.org/wikipedia/en/e/eb/Cuphead_%28artwork%29.png",
+        note: "Pure rage fuel"
     }
+
+];
+
+
+for (const game of favorite_games) {
+    var item = document.createElement("div");
+    item.className = "grid-item";
+
+    var img = document.createElement("img");
+    img.src = game.image;
+    img.alt = game.title;
+
+    var title = document.createElement("p");
+    title.textContent = game.title;
+    title.style.fontWeight = "bold";
+
+    var note = document.createElement("p");
+    note.textContent = game.note;
+
+    item.appendChild(img);
+    item.appendChild(title);
+    item.appendChild(note);
+
+    gamesContainer.appendChild(item);
+}
 </script>
 
 ### Journey through Life
 
 Here are some of my hobbies or things I like to do
 
--   Playing video games
--   Drawing
--   Sleeping
--   Skateboarding
--   Playing trumpet
+- Playing video games  
+- Drawing  
+- Sleeping  
+- Skateboarding  
+- Playing trumpet  
 
 ### Culture, Family, and Fun
 
-- My family comes from many places, such as China, England, and Germany. 
-- I have one sibling and one dog.
-- The gallery of pics has some of my family, fun, and culture.
+- My family comes from many places, such as China, England, and Germany.  
+- I have one sibling and one dog.  
+- The gallery of pics has some of my family, fun, and culture.  
 
 <comment>
 Gallery of Pics, scroll to the right for more ...
 </comment>
+
 <div class="image-gallery">
   <img src="{{site.baseurl}}/images/about/some_guy.jpg" alt="Image 1">
   <img src="{{site.baseurl}}/images/about/aura.JPG" alt="Image 2">
