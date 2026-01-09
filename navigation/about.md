@@ -99,26 +99,26 @@ for (const location of living_in_the_world) {
 }
 
 
-var http_source = "https://upload.wikimedia.org/wikipedia/commons/";
+var http_source = "https://upload.wikimedia.org/wikipedia/";
 var favorite_games = [
     {
         title: "Counter Strike",
-        image: "https://upload.wikimedia.org/wikipedia/en/f/f2/CS2_Cover_Art.jpg",
+        image: "en/f/f2/CS2_Cover_Art.jpg",
         note: "Best FPS game right now"
     },
     {
         title: "Valorant",
-        image: "https://upload.wikimedia.org/wikipedia/en/b/ba/Valorant_cover.jpg",
+        image: "en/b/ba/Valorant_cover.jpg",
         note: "Only fun with friends"
     },
     {
         title: "Hollow Knight",
-        image: "https://upload.wikimedia.org/wikipedia/en/0/04/Hollow_Knight_first_cover_art.webp",
+        image: "en/0/04/Hollow_Knight_first_cover_art.webp",
         note: "Best platformer game ever"
     },
     {
         title: "Cuphead",
-        image: "https://upload.wikimedia.org/wikipedia/en/e/eb/Cuphead_%28artwork%29.png",
+        image: "en/e/eb/Cuphead_%28artwork%29.png",
         note: "Pure rage fuel"
     }
 
@@ -130,7 +130,7 @@ for (const game of favorite_games) {
     item.className = "grid-item";
 
     var img = document.createElement("img");
-    img.src = game.image;
+    img.src = http_source + game.image;
     img.alt = game.title;
 
     var title = document.createElement("p");
